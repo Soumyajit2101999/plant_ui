@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:plat_app_ui_practice/screens/home/components/header_with_searchbox.dart';
 import 'package:plat_app_ui_practice/utils/constants.dart';
 
 class Body extends StatelessWidget {
@@ -14,93 +15,54 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
-        children: [HeaderWithSearchBox(size: size)],
+        children: [
+          HeaderWithSearchBox(size: size),
+          Row(
+            children: [
+              TitleWithCustomUnderline(
+                text: "Recomended",
+              ),
+              // FlatButton
+            ],
+          )
+        ],
       ),
     );
   }
 }
 
-class HeaderWithSearchBox extends StatelessWidget {
-  const HeaderWithSearchBox({
+class TitleWithCustomUnderline extends StatelessWidget {
+  const TitleWithCustomUnderline({
     Key? key,
-    required this.size,
+    required this.text,
   }) : super(key: key);
 
-  final Size size;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.height * 0.2,
-      // color: Colors.red,
-      child: Stack(children: [
-        Positioned(
-          child: Container(
-            height: size.height * 0.2 - 27,
-            decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(36),
-                    bottomRight: Radius.circular(36))),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: kDefaultPadding,
-                  right: kDefaultPadding,
-                  bottom: 36 + kDefaultPadding),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    // color: Colors.red,
-                    child: Text(
-                      "Hi Soumyajit! ",
-                      style: Theme.of(context).textTheme.headline5?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5),
-                    ),
-                  ),
-                  Image.asset("assets/images/logo.png")
-                ],
-              ),
+      height: 24,
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: kDefaultPadding / 4),
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
-        ),
-        Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              alignment: Alignment.center,
-              height: 54,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 50,
-                        color: kPrimaryColor.withOpacity(0.23))
-                  ]),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          hintText: "Search",
-                          hintStyle:
-                              TextStyle(color: kPrimaryColor.withOpacity(0.5)),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none),
-                    ),
-                  ),
-                  SvgPicture.asset("assets/icons/search.svg"),
-                ],
-              ),
-            ))
-      ]),
+          Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                margin: const EdgeInsets.only(right: kDefaultPadding / 4),
+                height: 7,
+                color: kPrimaryColor.withOpacity(0.2),
+              ))
+        ],
+      ),
     );
   }
 }
