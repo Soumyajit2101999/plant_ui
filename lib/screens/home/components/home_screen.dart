@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plat_app_ui_practice/screens/home/components/body.dart';
 import 'package:plat_app_ui_practice/utils/constants.dart';
+import 'package:plat_app_ui_practice/widgets/my_bottom_navbar.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -13,6 +14,7 @@ class Homescreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Body(),
+      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 

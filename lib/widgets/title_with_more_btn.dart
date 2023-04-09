@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plat_app_ui_practice/screens/home/components/title_with_custom_underline.dart';
+import 'package:plat_app_ui_practice/widgets/title_with_custom_underline.dart';
 
-import '../../../utils/constants.dart';
+import '../utils/constants.dart';
 
 class TitleWithMoreButton extends StatelessWidget {
   const TitleWithMoreButton({
@@ -21,7 +21,7 @@ class TitleWithMoreButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TitleWithCustomUnderline(
-            text: "Recomended",
+            text: title,
           ),
           TextButton(
               style: ButtonStyle(
@@ -35,7 +35,7 @@ class TitleWithMoreButton extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
               ),
               onPressed: () {},
-              child: Text(title))
+              child: Text("More"))
         ],
       ),
     );
