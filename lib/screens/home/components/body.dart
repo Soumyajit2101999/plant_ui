@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:plat_app_ui_practice/utils/routes.dart';
 import 'package:plat_app_ui_practice/widgets/featured_plants.dart';
 import 'package:plat_app_ui_practice/widgets/header_with_searchbox.dart';
 import 'package:plat_app_ui_practice/widgets/recomended_plant.dart';
@@ -26,6 +27,7 @@ class Body extends StatelessWidget {
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.only(right: 20),
             child: Row(
               children: [
                 RecomendedPlantCard(
@@ -33,7 +35,8 @@ class Body extends StatelessWidget {
                   title: "SAMANTHA",
                   country: "RUSSIA",
                   price: 440,
-                  press: () {},
+                  press: () =>
+                      Navigator.pushNamed(context, MyRoutes.detail_screen),
                 ),
                 RecomendedPlantCard(
                   image: "assets/images/image_2.png",
@@ -55,6 +58,7 @@ class Body extends StatelessWidget {
           TitleWithMoreButton(title: "Featured Plants", press: () {}),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.only(right: 20),
             child: Row(
               children: [
                 FeaturedPlantCard(image: "assets/images/bottom_img_1.png"),

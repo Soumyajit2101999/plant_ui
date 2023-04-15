@@ -15,12 +15,16 @@ class MyBottomNavBar extends StatelessWidget {
           right: kDefaultPadding * 2,
           bottom: kDefaultPadding),
       height: 80,
-      decoration: BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(
-            offset: Offset(0, -10),
-            blurRadius: 35,
-            color: kPrimaryColor.withOpacity(0.38))
-      ]),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, -10),
+                blurRadius: 35,
+                color: kPrimaryColor.withOpacity(0.38))
+          ],
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

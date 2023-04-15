@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plat_app_ui_practice/screens/details/components/detail_screen.dart';
 import 'package:plat_app_ui_practice/screens/home/components/home_screen.dart';
 import 'package:plat_app_ui_practice/utils/constants.dart';
 import 'package:plat_app_ui_practice/utils/routes.dart';
@@ -22,7 +23,10 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
           visualDensity: VisualDensity.adaptivePlatformDensity),
       initialRoute: MyRoutes.root,
-      routes: {MyRoutes.root: (context) => const Homescreen()},
+      routes: {
+        MyRoutes.root: (context) => const Homescreen(),
+        MyRoutes.detail_screen: (context) => const DetailScreen()
+      },
     );
   }
 }

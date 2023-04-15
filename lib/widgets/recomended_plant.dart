@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plat_app_ui_practice/utils/constants.dart';
+import 'package:plat_app_ui_practice/utils/routes.dart';
 
 class RecomendedPlantCard extends StatelessWidget {
   const RecomendedPlantCard({
@@ -28,7 +29,7 @@ class RecomendedPlantCard extends StatelessWidget {
         children: [
           Image.asset(image),
           GestureDetector(
-            onTap: () {},
+            onTap: () => Navigator.pushNamed(context, MyRoutes.detail_screen),
             child: Container(
               padding: EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(
